@@ -12,41 +12,41 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
-import { updateDefaultAccount } from "@/actions/account";
+import { updateDefaultAccount } from "@/actions/accounts";
 import { toast } from "sonner";
 
 export function AccountCard({ account }) {
   const { name, type, balance, id, isDefault } = account;
 
-//   const {
-//     loading: updateDefaultLoading,
-//     fn: updateDefaultFn,
-//     data: updatedAccount,
-//     error,
-//   } = useFetch(updateDefaultAccount);
+  const {
+    loading: updateDefaultLoading,
+    fn: updateDefaultFn,
+    data: updatedAccount,
+    error,
+  } = useFetch(updateDefaultAccount);
 
-//   const handleDefaultChange = async (event) => {
-//     event.preventDefault(); // Prevent navigation
+  const handleDefaultChange = async (event) => {
+    event.preventDefault(); // Prevent navigation
 
-//     if (isDefault) {
-//       toast.warning("You need atleast 1 default account");
-//       return; // Don't allow toggling off the default account
-//     }
+    if (isDefault) {
+      toast.warning("You need atleast 1 default account");
+      return; // Don't allow toggling off the default account
+    }
 
-//     await updateDefaultFn(id);
-//   };
+    await updateDefaultFn(id);
+  };
 
-//   useEffect(() => {
-//     if (updatedAccount?.success) {
-//       toast.success("Default account updated successfully");
-//     }
-//   }, [updatedAccount]);
+  useEffect(() => {
+    if (updatedAccount?.success) {
+      toast.success("Default account updated successfully");
+    }
+  }, [updatedAccount]);
 
-//   useEffect(() => {
-//     if (error) {
-//       toast.error(error.message || "Failed to update default account");
-//     }
-//   }, [error]);
+  useEffect(() => {
+    if (error) {
+      toast.error(error.message || "Failed to update default account");
+    }
+  }, [error]);
 
   return (
     <Card className="hover:shadow-md transition-shadow group relative">
@@ -57,8 +57,8 @@ export function AccountCard({ account }) {
           </CardTitle>
           <Switch
             checked={isDefault}
-            // onClick={handleDefaultChange}
-            // disabled={updateDefaultLoading}
+            onClick={handleDefaultChange}
+            disabled={updateDefaultLoading}
           />
         </CardHeader>
         <CardContent>
