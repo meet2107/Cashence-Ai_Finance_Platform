@@ -16,21 +16,14 @@ Cashence is an AI-powered personal finance platform that helps users manage expe
 
 ---
 
-## 🏗️ System Architecture
+## 🚀 Tech Stack
 
-```mermaid
-graph TD
-    UI[Frontend: Next.js + Tailwind + ShadCN]
-    Auth[Auth: Supabase]
-    DB[Database: Supabase PostgreSQL]
-    Inngest[Inngest (Event-driven functions)]
-    Gemini[Gemini AI (AI Recommendations)]
-    Arcjet[Arcjet (Bot Protection)]
-
-    UI --> Auth
-    UI --> DB
-    UI --> Inngest
-    UI --> Arcjet
-    Inngest --> Gemini
-    Inngest --> DB
-    Gemini --> Inngest
+| Technology | Purpose |
+|------------|---------|
+| **Next.js** | React framework with SSR support |
+| **TailwindCSS** | Rapid styling |
+| **Supabase** | Auth & Postgres backend |
+| **ShadCN** | UI components |
+| **Inngest** | Serverless event orchestration |
+| **Gemini AI** | Finance-related natural language AI |
+| **Arcjet** | Bot detection & protection |
